@@ -410,9 +410,15 @@ int main()
 		// check font.c to see all the chars that are available, or possibly add more.
 		//
 
-		// static const unsigned char str[]   = "I \xF0 SOLDERING  ";
-		  static const unsigned char str[] = "HENNER   ";   // Henner
+		// List of messages, we're toggling through. Only uppercase.
+		static const char *messages[] = {
+		  "HENNER   ",
+		  "I \xF0 NOISEBRIDGE  ",
+		  "HACKER  ",
+		};
 
+		// static const unsigned char str[]   = "I \xF0 SOLDERING  ";
+		//static const unsigned char str[]   = "HELLO  ";  // Dosa from Toorcamp 2012
 
 		//static const unsigned char str[]   = "MORE BASS  ";   // -zarina
 		//static const unsigned char str[]   = "SAN FRANCISCO 2012  ";
@@ -436,15 +442,16 @@ int main()
 		//static const unsigned char str[]   = "I HELLA \xF0 OAKLAND  ";
 		//static const unsigned char str[]   = "RED BURNS ROCKS!   I \xF0 ITP  ";
 
-		uint8_t strlength = strlen((char*) str);			// note: strlen expects char*
-
 		const uint8_t rep = 35;	// adjusts scrolling speed (higher number == slower, 35-40 seems about right)
 
 		while (1)  {  /* infinite loop */
+		     const char *str = messages[msgnum];
+		     uint8_t strlength = strlen(str);
 
 			// toggle message if we see a button event (press)
 			if (buttonevent) {
-				msgnum = !msgnum;
+			        msgnum++;
+				msgnum %= sizeof(messages) / sizeof(const char*);
 				len = 0;
 				buttonevent = 0;	// clear event flag
 			}
