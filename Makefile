@@ -5,14 +5,16 @@
 #
 #	1. connect programmer to finished badge kit
 #
-#		first, connect the programmer (Atmel AVRISP MKII or adafruit USBtinyISP)
-#		to the "fivebyfive" badge.
+#		first, connect the programmer to the "fivebyfive" badge.
+#		(note: adafruit USBtinyISP is default, but Atmel AVRISP MKII will also work)
+#
 #		it should be connected to the 2x3 pin header.
 #		be careful to notice the pin 1 marking.
 #
-#		also, the badge should be powered with 1.8 to 2.0v only.
-#		(the coin battery MUST be removed!)
+#		also, the badge should be powered with 3.0v only.
+#		(and the coin battery MUST be removed!)
 #		you may need a special battery adapter (or a bench power supply) to do this.
+#		(note: Atmel AVRISP MKII will require about 2.0v instead)
 #
 #
 #	1A. prepare AVR fuses
@@ -46,6 +48,12 @@
 #
 # revision history:
 #
+# - nov 20, 2012 - rolf
+#		(minor) fix a few comments.
+#
+# - nov 15, 2012 - rolf
+#		(minor) clarify instructions for the AVR programmer (above).
+#
 # - may 26, 2012 - rolf
 #		demo code now requires font.c and font.h, so add font.o to the OBJ list.
 #
@@ -75,7 +83,7 @@ OBJ            = fivebyfive_scrolltext.o font.o
 # note: use -Os to optimize for size
 
 MCU_TARGET     = attiny85
-##OPTIMIZE       = -O2
+# normally we use "-O2" but "-Os" optimizes for code size
 OPTIMIZE       = -Os
 
 DEFS           =
@@ -109,7 +117,6 @@ $(PRG).elf: $(OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 # dependencies (optional)
-rgbblink.o: rgbnode_iodefs.h
 
 clean:
 	rm -rf *.o $(PRG).elf *.eps *.png *.pdf *.bak 

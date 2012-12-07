@@ -1,7 +1,14 @@
 /*
- *	font.c - simple font library
+ *	font.c - simple 5 pixel high font library
  *
  *	revision history:
+ *
+ *	- nov 26, 2012 - rolf
+ *		add filled heart for char \xF1 (but commented out for now)
+ *
+ *	- nov 11, 2012 - rolf
+ *		add various new chars, such as "+" and "=".
+ *		note: be careful, since each new char adds to code space.
  *
  *	- dec 2, 2007 - rolf
  *		created.
@@ -27,7 +34,7 @@ typedef uint16_t uns16;
 
 
 //
-//	loads given character into global font array (and width too)
+//	loads a given character into global font array (and loads width too)
 //
 void loadfontchar(unsigned char c)
 {
@@ -315,6 +322,22 @@ void loadfontchar(unsigned char c)
 		FontChar[4] = (uns16) 0x01 << 7;
 		FontWidth = 4;
 		break;
+	case '+':	// new!
+		FontChar[0] = (uns16) 0x00 << 5;
+		FontChar[1] = (uns16) 0x02 << 5;
+		FontChar[2] = (uns16) 0x07 << 5;
+		FontChar[3] = (uns16) 0x02 << 5;
+		FontChar[4] = (uns16) 0x00 << 5;
+		FontWidth = 4;
+		break;
+	case '=':	// new!
+		FontChar[0] = (uns16) 0x00 << 5;
+		FontChar[1] = (uns16) 0x07 << 5;
+		FontChar[2] = (uns16) 0x00 << 5;
+		FontChar[3] = (uns16) 0x07 << 5;
+		FontChar[4] = (uns16) 0x00 << 5;
+		FontWidth = 4;
+		break;
 #ifndef OPT_FONTS
 	case 0xc9:		// ... (ellipses)
 		FontChar[0] = (uns16) 0x00 << 3;
@@ -414,6 +437,17 @@ void loadfontchar(unsigned char c)
 		FontChar[4] = (uns16) 0x08 << 1;
 		FontWidth = 8;
 		break;
+#ifdef NOTDEF
+	// optional char
+	case 0xF1:		// XXX	(filled heart)
+		FontChar[0] = (uns16) 0x36 << 1;
+		FontChar[1] = (uns16) 0x7f << 1;
+		FontChar[2] = (uns16) 0x3e << 1;
+		FontChar[3] = (uns16) 0x14 << 1;
+		FontChar[4] = (uns16) 0x08 << 1;
+		FontWidth = 8;
+		break;
+#endif
 #endif
 	default:	// badchar
 #ifndef OPT_FONTS

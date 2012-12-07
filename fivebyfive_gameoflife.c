@@ -386,7 +386,8 @@ int main()
 		blinkn(3);
 	}
 	
-	//mydelay10(20);
+	// "application" starts here...
+	// XXX NOT EVEN STARTED!!
 
 	{
 		uint8_t tmp, width;
@@ -412,73 +413,10 @@ int main()
 
 		static const unsigned char str[]   = "I \xF0 SOLDERING  ";
 
-        // CHM 11/26
-		//static const unsigned char str[]   = "I \xF0 TECHNO  ";
-		//static const unsigned char str[]   = "ENTER DUNGEON LABS  ";
-		//static const unsigned char str[]   = "PLEASE  \xF1  ME  ";
-
-        // CHM 11/19
-		//static const unsigned char str[]   = "AMOEBA CONSULTING LLC \xF0  ";
-		//static const unsigned char str[]   = "GO GIANTS!!  ";
-		//static const unsigned char str[]   = "I \xF0 NOISEBRIDGE IN SAN FRANCISCO!  ";
-		//static const unsigned char str[]   = "KILL THE TABLE EATERS!  ";		// south park
-		//static const unsigned char str[]   = "KILL ALL HUMANS!  ";
-
-		// 11/11, 2012 (WW - OAKLAND)
-		//static const unsigned char str[]   = "I \xF0 MARINE ANIMALS!   ";
-		//static const unsigned char str[]   = "BRANDON  ";
-		//static const unsigned char str[]   = "\xF0 SCIENCE ROCKS! \xF0   ";
-		//static const unsigned char str[]   = "I \xF0 CURIOSITY  ";
-
-        // CHM 8/6
-		//static const unsigned char str[]   = "NAFTALI THE MAN HARRIS  ";
-		//static const unsigned char str[]   = "010101000010000100101010001010101010100";
-		//static const unsigned char str[]   = "I \xF0 KKD  ";
-
-        // CHM 7/30
-		//static const unsigned char str[]   = "I \xF0 VIDEO GAMES :) !!!  ";
-		//static const unsigned char str[]   = "I BREAK APPLE PRODUCTS!! :D AND BREAK WIND...  ";
-		//static const unsigned char str[]   = "ERMAHGERD!   IT'S NELZ!  ";
-		//static const unsigned char str[]   = "HEYYY! :)  ";
-		//static const unsigned char str[]   = "KHAN!!!  ";
-		//static const unsigned char str[]   = "MY NAME IS RORY :)  ";
-		//static const unsigned char str[]   = "DARK \xF0 SAM  ";
-
-        // CHM 7/23
-		//static const unsigned char str[]   = "\xF0 MARGOT \xF0  ";
-		//static const unsigned char str[]   = "AWESOME! \xF0 !  ";
-		//static const unsigned char str[]   = "ESHIE \xF0 AMALIE  ";
-		//static const unsigned char str[]   = "WAY TO GO SARA! \xF0  ";
-		//static const unsigned char str[]   = "HONK IF YOU ARE HORNY!!  ";
-		//static const unsigned char str[]   = "HELLO I AM ZHI YING   I \xF0 BOOLEAN ALGEBRA   ";
-
-        // CHM 7/16
-		//static const unsigned char str[]   = "MORE BASS  ";   // -zarina
-		//static const unsigned char str[]   = "SAN FRANCISCO 2012  ";
-		//static const unsigned char str[]   = "HAPPY 53  ";    // -mio
-		//static const unsigned char str[]   = "ABCDEFGHIJKLMONOPQRSTUVWXYZ1234567890\xF0!. ";
-		//static const unsigned char str[]   = "PEACE ON EARTH  ";
-		//static const unsigned char str[]   = "INTERNET PREDATOR  ";
-		//static const unsigned char str[]   = "EFFE IS YOU AND ME  ";
-
-		//static const unsigned char str[]   = "HELLO WORLD!  ";
-		//static const unsigned char str[]   = "I \xF0 PIZZA  ";
-		//static const unsigned char str[]   = "I \xF0 CATS  ";
-		//static const unsigned char str[]   = "GO ERIN!  ";
-		//static const unsigned char str[]   = "GYRE AND GIMBLE  ";
-		//static const unsigned char str[]   = "POSTAGRAM  ";
-		//static const unsigned char str[]   = "DANCE YURKOSAURUS DANCE  \xF0  ";
-        //static const unsigned char str[]   = "HI I AM HEATHER!  ";
-        //static const unsigned char str[]   = "HELLO!  ";
-		//static const unsigned char str[]   = "I \xF0 OAKLAND  ";
-		//static const unsigned char str[]   = "I \xF0 MEGGIE!  ";
-		//static const unsigned char str[]   = "I HELLA \xF0 OAKLAND  ";
-		//static const unsigned char str[]   = "RED BURNS ROCKS!   I \xF0 ITP  ";
 
 		uint8_t strlength = strlen((char*) str);			// note: strlen expects char*
 
 		const uint8_t rep = 35;	// adjusts scrolling speed (higher number == slower, 35-40 seems about right)
-		//const uint8_t rep = 35;	// adjusts scrolling speed (higher number == slower, 35-40 seems about right)
 
 		while (1)  {  /* infinite loop */
 
